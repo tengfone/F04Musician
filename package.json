@@ -18,9 +18,11 @@
     "cors": "^2.8.5",
     "express": "^4.16.3",
     "express-fileupload": "^1.2.0",
+    "html-midi-player": "^1.1.0",
     "react": "^16.5.2",
     "react-bootstrap": "^1.4.0",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "soundfont-player": "^0.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -31,21 +33,22 @@
     "babel-loader": "^8.0.0",
     "clean-webpack-plugin": "^1.0.0",
     "concurrently": "^4.0.0",
+    "cors": "^2.8.5",
     "css-loader": "^2.0.0",
     "eslint": "^5.0.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "express-fileupload": "^1.2.0",
     "file-loader": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "json-loader": "^0.5.7",
     "nodemon": "^1.17.3",
     "style-loader": "^0.23.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.5.0",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.3",
-    "cors": "^2.8.5",
-    "express-fileupload": "^1.2.0"
+    "webpack-dev-server": "^3.1.3"
   }
 }

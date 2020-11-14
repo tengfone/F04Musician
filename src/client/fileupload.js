@@ -40,7 +40,7 @@ function FileUpload() {
             <hr />
             {data.path &&
                 <div>
-                    <textarea value={data.path} onChange={uploadFile} style ={{width: '100%',resize:"none"}} />
+                    <textarea value={data.path} onChange={uploadFile} style={{ width: '100%', resize: "none" }} />
                     <p>Python Output: {data.py}</p>
                 </div>}
         </div>
