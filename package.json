@@ -1,5 +1,5 @@
 {
-  "name": "cds",
+  "name": "f04transcript",
   "version": "1.0.0",
   "description": "Music Transcriptions",
   "main": "src/server/index.js",
@@ -14,10 +14,12 @@
   "dependencies": {
     "axios": "^0.21.0",
     "babel-polyfill": "^6.26.0",
+    "bootstrap": "^4.5.3",
     "cors": "^2.8.5",
     "express": "^4.16.3",
     "express-fileupload": "^1.2.0",
     "react": "^16.5.2",
+    "react-bootstrap": "^1.4.0",
     "react-dom": "^16.5.2"
   },
   "devDependencies": {

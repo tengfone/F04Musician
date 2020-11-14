@@ -25,22 +25,24 @@ function FileUpload() {
             }
         }).then(res => {
             console.log(res);
-            getFile({ name: res.data.name, path: 'http://localhost:8080' + res.data.path })
+            getFile({ name: res.data.name, path: 'http://localhost:8080' + res.data.path, py: res.data.py })
             // el.current.value = "";
         }).catch(err => console.log(err))
     }
 
     return (
-        <div>
-            <div className="file-upload">
+        <div className="centered">
+            <div>
                 <input type="file" ref={el} onChange={handleChange} />
                 <div className="progessBar" style={{ width: progress }}>{progress}</div>
-                <button onClick={uploadFile} className="upbutton">upload</button>
+                <button onClick={uploadFile} className="upbutton">Upload</button>
             </div>
             <hr />
-            {data.path && <div><textarea value={data.path} onChange={uploadFile} /></div>}
-            {data.path && <img src={data.path} alt={data.name} />}
-
+            {data.path &&
+                <div>
+                    <textarea value={data.path} onChange={uploadFile} style ={{width: '100%',resize:"none"}} />
+                    <p>Python Output: {data.py}</p>
+                </div>}
         </div>
     );
 }

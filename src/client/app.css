@@ -10,9 +10,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1rem;
+  background-color: black;
+  display: flex;
+  justify-content: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.centered {
+  width: 640px;
+  padding: 10px;
+  border: 5px solid gray;
+  background-color: yellow;
+  margin: 0 auto;
 }
