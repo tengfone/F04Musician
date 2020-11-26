@@ -5,10 +5,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const outputDirectory = 'dist';
 
 module.exports = {
-  entry: ['babel-polyfill', './src/client/index.js','html-midi-player'],
+  entry: ['babel-polyfill', './src/client/index.js', 'html-midi-player'],
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [{
@@ -34,10 +35,7 @@ module.exports = {
   devServer: {
     port: 3000,
     open: true,
-    historyApiFallback: true,
-    proxy: {
-      "*": "http://[::1]:8080",
-    }
+    historyApiFallback: true
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
