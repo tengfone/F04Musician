@@ -28,8 +28,8 @@ app.post('/api/upload', (req, res) => {
 
         // Run python Script
         var spawn = require("child_process").spawn; 
-        var process = spawn('python',["./machine_learning/main.py", 
-                            myFile.name] ); 
+        var process = spawn('python3',["./machine_learning/main.py", 
+                            myFile.name] );
         // Return an array of midi + seconds etc etc
 
         process.stdout.on('data', (data) => {
