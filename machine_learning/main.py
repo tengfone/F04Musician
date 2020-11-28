@@ -106,4 +106,5 @@ def main(argv):
     print(argv)
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main("test_coffin.wav")
+    # main(sys.argv[1:])
