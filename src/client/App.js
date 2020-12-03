@@ -7,8 +7,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>F04 Piano Transcription</h1>
-        {/* {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>} */}
+        <a href="./"><h1>F04 Piano Transcription</h1></a>
         <body>
           <FileUpload />
         </body>

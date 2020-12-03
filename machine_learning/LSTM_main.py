@@ -50,7 +50,7 @@ def main(argv):
     print(file_name)
     print(file_path)
     model = Model()
-    checkpoint = torch.load('./machine_learning/model/model.pt', map_location = 'cpu')
+    checkpoint = torch.load('./machine_learning/model/LSTM_model.pt', map_location = 'cpu')
     model.load_state_dict(checkpoint['state_dict'], strict=False)
     model.eval()
 
@@ -106,5 +106,4 @@ def main(argv):
     print(argv)
 
 if __name__ == "__main__":
-    main("test_coffin.wav")
-    # main(sys.argv[1:])
+    main(sys.argv[1:])
