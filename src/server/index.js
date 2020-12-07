@@ -18,6 +18,9 @@ app.post('/api/upload', (req, res) => {
 
     const myFile = req.files.file;
     const modelChoice = req.body.choice;
+    const startW = req.body.startVal;
+    const endW = req.body.endVal;
+    const sigmoidVal = req.body.sigmoidVal;
 
     myFile.mv(`./uploads/${myFile.name}`, function (err) {
         if (err) {
@@ -30,13 +33,22 @@ app.post('/api/upload', (req, res) => {
             var spawn = require("child_process").spawn;
             var process = spawn('python3', ["./machine_learning/CNN_main.py",
                 myFile.name]);
-
             process.stdout.on('data', (data) => {
                 res.send({ file: myFile.name, path: `/${myFile.name}`, ty: myFile.type, py: data.toString() });
             })
         } else {
             // LSTM
-            res.send({ file: "RNN", path: `RNN`, ty: myFile.type, py: "HELLO" })
+            var params = [];
+            params.push(myFile.name)
+            params.push(startW)
+            params.push(endW)
+            params.push(sigmoidVal)
+            var spawn = require("child_process").spawn;
+            var process = spawn('python3', ["./machine_learning/LSTM_main.py",
+                params]);
+            process.stdout.on('data', (data) => {
+                res.send({ file: myFile.name, path: `/${myFile.name}`, ty: myFile.type, py: data.toString() });
+            })
         }
     });
 })

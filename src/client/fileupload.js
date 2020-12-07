@@ -7,6 +7,10 @@ function FileUpload() {
     const [data, getFile] = useState({ name: "", path: "" });
     const [progress, setProgess] = useState(0);
     const [value, defaultCheck] = useState("");
+    const [startW, defaultstartW] = useState("");
+    const [endW, defaultendW] = useState("");
+    const [sigmoidValue, defaultsigmoid] = useState("");
+
 
     const el = useRef();
 
@@ -19,12 +23,31 @@ function FileUpload() {
 
     const uploadFile = () => {
         var whatModel = "CNN"
-        if(value==="LSTM"){
+        if (value === "LSTM") {
+            if (startVal == null) {
+                var startVal = "1"
+            } else {
+                startVal = startW
+            }
+            if (endVal == null) {
+                var endVal = "40"
+            } else {
+                endVal = endW
+            }
+            if (sigmoidVal == null) {
+                var sigmoidVal = "0.9"
+            } else {
+                sigmoidVal = sigmoidValue
+            }
             whatModel = "LSTM"
         }
         const formData = new FormData();
         formData.append('file', file)
-        formData.append('choice',whatModel)
+        formData.append('choice', whatModel)
+        formData.append('startVal', startVal)
+        formData.append('endVal', endVal)
+        formData.append('sigmoidVal', sigmoidVal)
+        console.log(whatModel)
         axios.post('http://localhost:8080/api/upload', formData, {
             onUploadProgress: (ProgressEvent) => {
                 let progress = Math.round(ProgressEvent.loaded / ProgressEvent.total * 100) + '%';
@@ -33,13 +56,27 @@ function FileUpload() {
         }).then(res => {
             console.log(res);
             getFile({ name: res.data.name, path: 'http://localhost:8080' + res.data.path, py: res.data.py })
-            // el.current.value = "";
         }).catch(err => console.log(err))
     }
 
     const checkBox = (event) => {
         var value = event.target.value;
         defaultCheck(value)
+    }
+
+    const startBox = (event) => {
+        var startW = event.target.value;
+        defaultstartW(startW)
+    }
+
+    const endBox = (event) => {
+        var endW = event.target.value;
+        defaultendW(endW)
+    }
+
+    const sigBox = (event) => {
+        var sigmoidValue = event.target.value;
+        defaultsigmoid(sigmoidValue)
     }
 
     return (
@@ -50,8 +87,7 @@ function FileUpload() {
                 <button onClick={uploadFile} className="upbutton mt-2">Upload</button>
                 <h5 className="pt-4">Choose Your Model</h5>
                 <div className="form-check">
-                    {/* here is the checkbox, i want to get the value */}
-                    <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="CNN" checked onClick={(e) => checkBox(e)} />
+                    <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="CNN" defaultChecked onClick={(e) => checkBox(e)} />
                     <label className="form-check-label" htmlFor="exampleRadios1">
                         CNN
                     </label>
@@ -62,6 +98,21 @@ function FileUpload() {
                         LSTM
                         </label>
                 </div>
+                <h6 className="pt-4">Select Parameters: (For LSTM Only)</h6>
+                <form>
+                    <div className="form-group">
+                        <label htmlFor="formGroupExampleInput">Start Window (int)</label>
+                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Default: 1" onChange={(e) => startBox(e)} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="formGroupExampleInput2">End Window (int)</label>
+                        <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Default: 40" onChange={(e) => endBox(e)} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="formGroupExampleInput2">Sigmoid Probability (float)</label>
+                        <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Default: 0.9" onChange={(e) => sigBox(e)} />
+                    </div>
+                </form>
             </div>
             <hr />
             {data.path &&

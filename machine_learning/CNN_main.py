@@ -95,13 +95,9 @@ def main(argv):
         if pitches!=[]:
             for pitch in pitches:
                 MyMIDI.addNote(track, channel, pitch, time*i, duration, volume)
-    outputFile = file_name[:-3]
 
-    with open("./transcribed/outputtest.midi".format(outputFile), "wb") as output_file:
+    with open("./transcribed/outputtest.midi", "wb") as output_file:
         MyMIDI.writeFile(output_file)
-
-    # with open("../transcribed/{}.midi".format(outputFile), "wb") as output_file:
-    #     MyMIDI.writeFile(output_file)
 
     print(argv)
 
