@@ -1,5 +1,6 @@
 h1 {
-  color: green;
+  color: white;
+  font: 'Fira Sans';
 }
 
 body {
@@ -24,6 +25,6 @@ code {
   width: 640px;
   padding: 10px;
   border: 5px solid gray;
-  background-color: yellow;
+  background-color: white;
   margin: 0 auto;
 }
