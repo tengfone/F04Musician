@@ -48,14 +48,14 @@ function FileUpload() {
         formData.append('endVal', endVal)
         formData.append('sigmoidVal', sigmoidVal)
         console.log(whatModel)
-        axios.post('http://localhost:8080/api/upload', formData, {
+        axios.post('http://0.0.0.0:8080/api/upload', formData, {
             onUploadProgress: (ProgressEvent) => {
                 let progress = Math.round(ProgressEvent.loaded / ProgressEvent.total * 100) + '%';
                 setProgess(progress)
             }
         }).then(res => {
             console.log(res);
-            getFile({ name: res.data.name, path: 'http://localhost:8080' + res.data.path, py: res.data.py })
+            getFile({ name: res.data.name, path: 'http://0.0.0.0:8080' + res.data.path, py: res.data.py })
         }).catch(err => console.log(err))
     }
 
