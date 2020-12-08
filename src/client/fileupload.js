@@ -5,17 +5,16 @@ function FileUpload() {
 
     const [file, setFile] = useState('');
     const [data, getFile] = useState({ name: "", path: "" });
-    const [progress, setProgess] = useState(0);
+    const [progress, setProgress] = useState(0);
     const [value, defaultCheck] = useState("");
     const [startW, defaultstartW] = useState("");
     const [endW, defaultendW] = useState("");
     const [sigmoidValue, defaultsigmoid] = useState("");
 
-
     const el = useRef();
 
     const handleChange = (e) => {
-        setProgess(0)
+        setProgress(0)
         const file = e.target.files[0]
         console.log(file);
         setFile(file)
@@ -23,19 +22,22 @@ function FileUpload() {
 
     const uploadFile = () => {
         var whatModel = "CNN"
+        //startW is useState, startVal local
+        var startVal, endVal, sigmoidVal;
+        console.log(startW, endW, sigmoidValue);
         if (value === "LSTM") {
-            if (startVal == null) {
-                var startVal = "1"
+            if (startW === "") {
+                startVal = "1"
             } else {
                 startVal = startW
             }
-            if (endVal == null) {
-                var endVal = "40"
+            if (endW === "") {
+                endVal = "40"
             } else {
                 endVal = endW
             }
-            if (sigmoidVal == null) {
-                var sigmoidVal = "0.9"
+            if (sigmoidValue === "") {
+                sigmoidVal = "0.9"
             } else {
                 sigmoidVal = sigmoidValue
             }
@@ -51,7 +53,7 @@ function FileUpload() {
         axios.post('http://0.0.0.0:8080/api/upload', formData, {
             onUploadProgress: (ProgressEvent) => {
                 let progress = Math.round(ProgressEvent.loaded / ProgressEvent.total * 100) + '%';
-                setProgess(progress)
+                setProgress(progress)
             }
         }).then(res => {
             console.log(res);
@@ -95,14 +97,14 @@ function FileUpload() {
                 <div className="form-check">
                     <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="LSTM" onClick={(e) => checkBox(e)} />
                     <label className="form-check-label" htmlFor="exampleRadios2">
-                        LSTM
+                        CNN + LSTM
                         </label>
                 </div>
                 <h6 className="pt-4">Select Parameters: (For LSTM Only)</h6>
                 <form>
                     <div className="form-group">
                         <label htmlFor="formGroupExampleInput">Start Window (int)</label>
-                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Default: 1" onChange={(e) => startBox(e)} />
+                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Default: 1" onChange={(e) => startBox(e)}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="formGroupExampleInput2">End Window (int)</label>
