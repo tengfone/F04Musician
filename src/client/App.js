@@ -7,11 +7,15 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <a href="./"><h1>F04 Piano Transcription</h1></a>
+          <style>
+              @import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+          </style>
+        <a href="./"><h1 >F04 Piano Transcription</h1></a>
+
         <body>
           <FileUpload />
         </body>
-        <div style={{ backgroundColor: "white", justifyContent: "center" }}>
+        <div style={{ backgroundColor: "white", justifyContent: "center"}}>
           <section id="section1">
             <midi-player
               src="../../transcribed/outputtest.midi"

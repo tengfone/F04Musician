@@ -1,6 +1,7 @@
 h1 {
   color: white;
-  font: 'Fira Sans';
+  
+  font-family: 'Sevillana', cursive;
 }
 
 body {
@@ -12,6 +13,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1rem;
   background-color: black;
+  background-image: url(https://wallpapercave.com/wp/YToThrj.jpg);
+  background-size:cover;
   display: flex;
   justify-content: center;
 }
@@ -27,4 +30,5 @@ code {
   border: 5px solid gray;
   background-color: white;
   margin: 0 auto;
+  opacity: 0.7;
 }
