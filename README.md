@@ -18,9 +18,11 @@ Please refer to our [report](./F04_Report.pdf)
 
 ## Installation
 Either run it locally or on an AWS EC2 Instance (XLarge with 32GB Disk Storage on Ubuntu LTS 20.X). You will need to have the following packages found under Technologies to run.
-```npm install```
 
+
+```npm install```
 ```npm run dev```
+
 Please note that the LSTM_model.pt is not included in ./machine_learning/model as the file size exceed GitHub allowed file size. As such download [here](https://drive.google.com/file/d/1ZOWupNr_J1WU6m0zaaNqDlFS3VpUrv0Y/view) and import it over.
 
 ## Technologies
@@ -32,7 +34,7 @@ Please note that the LSTM_model.pt is not included in ./machine_learning/model a
 - [nnAudio](https://github.com/KinWaiCheuk/nnAudio)
 
 ## Done By:
-[Koh Ling Tian](https://github.com/ltiinagn)
-[Noah Lim Ren Dong](https://github.com/scizora)
-[Yong Wen Xin](https://github.com/yongwenxin)
-[Phang Teng Fone](https://github.com/tengfone)
+- [Koh Ling Tian](https://github.com/ltiinagn)
+- [Noah Lim Ren Dong](https://github.com/scizora)
+- [Yong Wen Xin](https://github.com/yongwenxin)
+- [Phang Teng Fone](https://github.com/tengfone)
