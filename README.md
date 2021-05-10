@@ -6,6 +6,7 @@ A multi-model audio analysis tool, done periodically over a span of music wav fi
 ## Demo (CNN ONLY) for LSTM-CNN model, please view instructions below on how to run locally
 Hosted on [Heroku](https://www.heroku.com) and powered by [StreamLit](https://streamlit.io/).   
 [Demo](https://f04musician.herokuapp.com/)
+[Source Code](https://github.com/tengfone/f04musicianStreamLit)
 
 ## Screenshot (OLD UI | LSTM-CNN model)
 <img src="./frontend.PNG" width="800" height="800">
