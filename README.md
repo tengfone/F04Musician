@@ -7,7 +7,7 @@ A multi-model audio analysis tool, done periodically over a span of music wav fi
 Hosted on [Heroku](https://www.heroku.com) and powered by [StreamLit](https://streamlit.io/).   
 [Demo](https://f04musician.herokuapp.com/)
 
-## Screenshot
+## Screenshot (OLD UI | LSTM-CNN model)
 <img src="./frontend.PNG" width="800" height="800">
 
 ## Project Overview
