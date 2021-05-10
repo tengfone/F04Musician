@@ -3,6 +3,10 @@
 ## Abstract
 A multi-model audio analysis tool, done periodically over a span of music wav files. Utilizing this model would produce a visual transcription that is able to show what specific notes are being played in the audio files.
 
+## Demo (CNN ONLY) for LSTM-CNN model, please view instructions below on how to run locally
+Hosted on [Heroku](https://www.heroku.com) and powered by [StreamLit](https://streamlit.io/).   
+[Demo](https://f04musician.herokuapp.com/)
+
 ## Screenshot
 <img src="./frontend.PNG" width="800" height="800">
 
